@@ -1,6 +1,6 @@
 import Axios, { AxiosStatic } from "axios";
 
-interface HouseData {
+export interface HouseData {
   readonly id: number;
   readonly full_address: string;
   readonly description: string;
