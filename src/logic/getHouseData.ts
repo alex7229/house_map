@@ -5,7 +5,7 @@ export interface HouseData {
   readonly full_address: string;
   readonly description: string;
   readonly images: ReadonlyArray<string>;
-  readonly area: number;
+  readonly area?: number;
   readonly price: number;
 }
 

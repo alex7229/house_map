@@ -1,13 +1,13 @@
 import * as React from "react";
 
 interface Props {
-  readonly url: string;
+  readonly urls: ReadonlyArray<string>;
   readonly children?: ReadonlyArray<JSX.Element>;
 }
 
 export const ImageWrapper = (props: Props) => (
   <div className="image_wrapper">
-    <img src={props.url} />
+    <img src={props.urls[0]} />
     {props.children}
   </div>
 );

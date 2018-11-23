@@ -1,10 +1,10 @@
 import Axios, { AxiosStatic } from "axios";
 import { HouseData } from "./getHouseData";
 
-interface TemplatePart {
+export interface TemplatePart {
   readonly component: "ADDRESS" | "IMAGE" | "AREA" | "PRICE";
   readonly field: keyof HouseData;
-  readonly children: ReadonlyArray<TemplatePart>;
+  readonly children?: ReadonlyArray<TemplatePart>;
 }
 
 export interface Template {
