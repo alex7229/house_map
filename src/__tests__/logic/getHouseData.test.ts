@@ -4,7 +4,10 @@ import { getHouseDataFactory } from "../../logic/getHouseData";
 it("should call correct api endpoint and return data", async done => {
   const get = jest
     .fn()
-    .mockResolvedValue({ data: ["first house", "second house"] });
+    .mockResolvedValue({
+      status: 200,
+      data: { data: ["first house", "second house"] }
+    });
   const axios = {} as AxiosStatic;
   axios.get = get;
   const result = await getHouseDataFactory(axios)();

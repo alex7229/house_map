@@ -14,7 +14,7 @@ type GetHouseDataFactory = (axios: AxiosStatic) => GetHouseData;
 
 export const getHouseDataFactory: GetHouseDataFactory = axios => async () => {
   const response = await axios.get("http://demo4452328.mockable.io/properties");
-  return response.data;
+  return response.data.data;
 };
 
 export const getHouseData = getHouseDataFactory(Axios);

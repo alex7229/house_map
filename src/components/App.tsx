@@ -27,9 +27,7 @@ class App extends React.Component<{}, State> {
     const data = await getHouseData();
     this.setState({
       template: templates[0],
-      // todo: fix this bug (get house data fetches data incorrectly)
-      // @ts-ignore
-      data: data.data,
+      data,
       downloaded: true
     });
   }
