@@ -1,7 +1,7 @@
 import { shallow } from "enzyme";
 import * as React from "react";
+import { House } from "../../components/House";
 import { Page } from "../../components/Page";
-import { TemplateComponent } from "../../components/TemplateComponent";
 import { Template } from "../../logic/fetchTemplates";
 import { HouseData } from "../../logic/getHouseData";
 
@@ -91,7 +91,7 @@ it("should render template components", () => {
   const wrapper = shallow(
     <Page templates={testTemplates} data={testHouseData} />
   );
-  expect(wrapper.find(TemplateComponent).props()).toEqual({
+  expect(wrapper.find(House).props()).toEqual({
     data: testHouseData[0],
     template: testTemplates[0]
   });

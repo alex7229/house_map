@@ -1,16 +1,16 @@
 import * as React from "react";
 import { Template } from "../logic/fetchTemplates";
 import { HouseData } from "../logic/getHouseData";
-import { TemplatePartComponent } from "./TemplatePartComponent";
+import { HousePart } from "./HousePart";
 
 interface Props {
   readonly template: Template;
   readonly data: HouseData;
 }
 
-export const TemplateComponent = (props: Props) => {
+export const House = (props: Props) => {
   const content = props.template.template.map(templatePart => (
-    <TemplatePartComponent
+    <HousePart
       data={props.data}
       templatePart={templatePart}
       key={templatePart.component}

@@ -1,10 +1,10 @@
 import { shallow } from "enzyme";
 import * as React from "react";
-import { TemplateComponent } from "../../components/TemplateComponent";
-import { TemplatePartComponent } from "../../components/TemplatePartComponent";
+import { House } from "../../components/House";
+import { HousePart } from "../../components/HousePart";
 import { Template } from "../../logic/fetchTemplates";
 
-it("should render component properly", () => {
+it("should render house properly", () => {
   const data = {
     area: 235,
     description: "",
@@ -25,19 +25,17 @@ it("should render component properly", () => {
       { component: "AREA", field: "area" }
     ]
   };
-  const wrapper = shallow(
-    <TemplateComponent data={data} template={template} />
-  );
-  expect(wrapper.find(TemplatePartComponent).length).toEqual(3);
-  expect(wrapper.find(TemplatePartComponent).get(0).props).toEqual({
+  const wrapper = shallow(<House data={data} template={template} />);
+  expect(wrapper.find(HousePart).length).toEqual(3);
+  expect(wrapper.find(HousePart).get(0).props).toEqual({
     data,
     templatePart: template.template[0]
   });
-  expect(wrapper.find(TemplatePartComponent).get(1).props).toEqual({
+  expect(wrapper.find(HousePart).get(1).props).toEqual({
     data,
     templatePart: template.template[1]
   });
-  expect(wrapper.find(TemplatePartComponent).get(2).props).toEqual({
+  expect(wrapper.find(HousePart).get(2).props).toEqual({
     data,
     templatePart: template.template[2]
   });

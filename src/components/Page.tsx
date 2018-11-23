@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Template } from "../logic/fetchTemplates";
 import { HouseData } from "../logic/getHouseData";
-import { TemplateComponent } from "./TemplateComponent";
+import { House } from "./House";
 
 interface Props {
   readonly templates: ReadonlyArray<Template>;
@@ -41,7 +41,7 @@ export class Page extends React.Component<Props, State> {
 
   public render() {
     const houses = this.props.data.map((house, index) => (
-      <TemplateComponent
+      <House
         template={this.props.templates[this.state.templateIndex]}
         data={house}
         key={index}

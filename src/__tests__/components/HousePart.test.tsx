@@ -2,9 +2,9 @@ import { shallow } from "enzyme";
 import * as React from "react";
 import { Address } from "../../components/Address";
 import { Area } from "../../components/Area";
+import { HousePart } from "../../components/HousePart";
 import { ImageWrapper } from "../../components/ImageWrapper";
 import { Price } from "../../components/Price";
-import { TemplatePartComponent } from "../../components/TemplatePartComponent";
 import { TemplatePart } from "../../logic/fetchTemplates";
 import { HouseData } from "../../logic/getHouseData";
 
@@ -23,7 +23,7 @@ it("should render address component properly", () => {
     field: "full_address"
   };
   const wrapper = shallow(
-    <TemplatePartComponent templatePart={templatePart} data={defaultData} />
+    <HousePart templatePart={templatePart} data={defaultData} />
   );
   expect(wrapper.contains(<Address address={defaultData.full_address} />)).toBe(
     true
@@ -36,7 +36,7 @@ it("should render area component properly", () => {
     field: "area"
   };
   const wrapper = shallow(
-    <TemplatePartComponent templatePart={templatePart} data={defaultData} />
+    <HousePart templatePart={templatePart} data={defaultData} />
   );
   expect(wrapper.contains(<Area area={235} />)).toBe(true);
 });
@@ -48,7 +48,7 @@ it("should not render area component if area value is undefined", () => {
   };
   const data = { ...defaultData, area: undefined };
   const wrapper = shallow(
-    <TemplatePartComponent templatePart={templatePart} data={data} />
+    <HousePart templatePart={templatePart} data={data} />
   );
   expect(wrapper.find(Area).length).toBe(0);
 });
@@ -59,7 +59,7 @@ it("should render price component properly", () => {
     field: "price"
   };
   const wrapper = shallow(
-    <TemplatePartComponent templatePart={templatePart} data={defaultData} />
+    <HousePart templatePart={templatePart} data={defaultData} />
   );
   expect(wrapper.contains(<Price price={defaultData.price} />)).toBe(true);
 });
@@ -70,7 +70,7 @@ it("should render image wrapper component without children", () => {
     field: "images"
   };
   const wrapper = shallow(
-    <TemplatePartComponent templatePart={templatePart} data={defaultData} />
+    <HousePart templatePart={templatePart} data={defaultData} />
   );
   expect(wrapper.contains(<ImageWrapper urls={defaultData.images} />)).toBe(
     true
@@ -88,7 +88,7 @@ it("should render image wrapper with price, area and address inside", () => {
     ]
   };
   const wrapper = shallow(
-    <TemplatePartComponent templatePart={templatePart} data={defaultData} />
+    <HousePart templatePart={templatePart} data={defaultData} />
   );
   expect(wrapper.props().urls).toEqual(defaultData.images);
   expect(wrapper.props().children.length).toBe(3);

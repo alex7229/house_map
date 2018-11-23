@@ -11,7 +11,7 @@ interface Props {
   readonly templatePart: TemplatePart;
 }
 
-export const TemplatePartComponent = (props: Props) => {
+export const HousePart = (props: Props) => {
   // it is assumed that value type is correct
   // template is not validated
   const value: any = props.data[props.templatePart.field];
@@ -33,7 +33,7 @@ export const TemplatePartComponent = (props: Props) => {
   }
   const children = props.templatePart.children.map(imageInnerPart => {
     return (
-      <TemplatePartComponent
+      <HousePart
         data={props.data}
         templatePart={imageInnerPart}
         key={imageInnerPart.component}
