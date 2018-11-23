@@ -5,7 +5,7 @@ import {
 } from "../logic/prettyPrintNumber";
 
 interface Props {
-  readonly square: number;
+  readonly area: number;
 }
 
 type FactoryProps = Props & {
@@ -13,8 +13,8 @@ type FactoryProps = Props & {
 };
 
 export const AreaFactory = (props: FactoryProps) => {
-  const prettySquare = props.prettyPrint(props.square) + " sq. ft.";
-  return <p className="square">{prettySquare}</p>;
+  const prettyArea = props.prettyPrint(props.area) + " sq. ft.";
+  return <p className="area">{prettyArea}</p>;
 };
 
 export const Area = (props: Props) => (
