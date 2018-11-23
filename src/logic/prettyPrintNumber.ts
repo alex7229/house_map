@@ -1,4 +1,4 @@
-type PrettyPrintNumber = (num: number) => string;
+export type PrettyPrintNumber = (num: number) => string;
 
 export const prettyPrintNumber: PrettyPrintNumber = num => {
   const roundedNumber = Math.round(num).toString();
