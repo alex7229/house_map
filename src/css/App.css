@@ -6,6 +6,19 @@
   padding: 1rem;
   color: white;
 }
+@media screen and (max-width: 600px) {
+  .imageText {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+  button {
+    display: block;
+  }
+  #previous_template {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+}
 .imageText p {
   margin: 0;
 }
@@ -18,8 +31,30 @@
 }
 .template {
   max-width: 600px;
+  margin-top: 1rem;
   border-bottom: 2px solid gray;
 }
 .template:last-child {
   border: none;
+}
+button {
+  background-color: #017bff;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.5rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  color: #fff;
+  border-radius: 4px;
+  transition: background-color 0.1s linear;
+}
+button:hover {
+  background-color: #006adc;
+  cursor: pointer;
+}
+button:active {
+  background-color: #017bff;
+}
+#previous_template {
+  margin-right: 2rem;
 }
