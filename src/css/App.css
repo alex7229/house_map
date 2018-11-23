@@ -58,3 +58,9 @@ button:active {
 #previous_template {
   margin-right: 2rem;
 }
+
+.price {
+  font-size: 2rem;
+  margin: 0;
+  font-weight: bold;
+}
