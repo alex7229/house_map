@@ -17,4 +17,4 @@ export const getHouseDataFactory: GetHouseDataFactory = axios => async () => {
   return response.data;
 };
 
-export const GetHouseData = getHouseDataFactory(Axios);
+export const getHouseData = getHouseDataFactory(Axios);
