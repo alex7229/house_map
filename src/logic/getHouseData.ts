@@ -13,7 +13,7 @@ type GetHouseData = () => Promise<ReadonlyArray<HouseData>>;
 type GetHouseDataFactory = (axios: AxiosStatic) => GetHouseData;
 
 export const getHouseDataFactory: GetHouseDataFactory = axios => async () => {
-  const response = await axios.get("http://demo4452328.mockable.io/properties");
+  const response = await axios.get("/houseData.json");
   return response.data.data;
 };
 

@@ -16,7 +16,7 @@ type FetchTemplates = () => Promise<ReadonlyArray<Template>>;
 type FetchTemplatesFactory = (axios: AxiosStatic) => FetchTemplates;
 
 export const fetchTemplatesFactory: FetchTemplatesFactory = axios => async () => {
-  const response = await axios.get("http://demo4452328.mockable.io/templates");
+  const response = await axios.get("/templates.json");
   return response.data;
 };
 
