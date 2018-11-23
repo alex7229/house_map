@@ -2,10 +2,10 @@ import * as React from "react";
 import "../css/App.css";
 import { fetchTemplates, Template } from "../logic/fetchTemplates";
 import { getHouseData, HouseData } from "../logic/getHouseData";
-import { TemplateComponent } from "./TemplateComponent";
+import { Page } from "./Page";
 
 interface State {
-  readonly template: Template;
+  readonly templates: ReadonlyArray<Template>;
   readonly data: ReadonlyArray<HouseData>;
   readonly downloaded: boolean;
 }
@@ -13,12 +13,10 @@ interface State {
 class App extends React.Component<{}, State> {
   constructor(props: {}) {
     super(props);
-    const data = {} as ReadonlyArray<HouseData>;
-    const template = {} as Template;
     this.state = {
       downloaded: false,
-      data,
-      template
+      data: [],
+      templates: []
     };
   }
 
@@ -26,7 +24,7 @@ class App extends React.Component<{}, State> {
     const templates = await fetchTemplates();
     const data = await getHouseData();
     this.setState({
-      template: templates[0],
+      templates,
       data,
       downloaded: true
     });
@@ -36,13 +34,7 @@ class App extends React.Component<{}, State> {
     if (!this.state.downloaded) {
       return <p>fetching data</p>;
     }
-    return this.state.data.map((dataPart, index) => (
-      <TemplateComponent
-        key={index}
-        template={this.state.template}
-        data={dataPart}
-      />
-    ));
+    return <Page templates={this.state.templates} data={this.state.data} />;
   }
 }
 
