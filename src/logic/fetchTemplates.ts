@@ -6,7 +6,12 @@ interface TemplatePart {
   readonly children: ReadonlyArray<TemplatePart>;
 }
 
-type FetchTemplate = () => Promise<ReadonlyArray<TemplatePart>>;
+interface Template {
+  readonly id: number;
+  readonly template: ReadonlyArray<TemplatePart>;
+}
+
+type FetchTemplate = () => Promise<ReadonlyArray<Template>>;
 type FetchTemplateFactory = (axios: AxiosStatic) => FetchTemplate;
 
 export const fetchTemplateFactory: FetchTemplateFactory = axios => async () => {
