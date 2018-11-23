@@ -19,3 +19,8 @@ it("should render children properly", () => {
   const imageWrapper = shallow(<ImageWrapper urls={[""]} children={[price]} />);
   expect(imageWrapper.contains(price)).toBe(true);
 });
+
+it("should not render image text block if there are no children", () => {
+  const wrapper = shallow(<ImageWrapper urls={[""]} />);
+  expect(wrapper.find(".imageText").length).toBe(0);
+});

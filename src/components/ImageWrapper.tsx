@@ -8,6 +8,6 @@ interface Props {
 export const ImageWrapper = (props: Props) => (
   <div className="image_wrapper">
     <img src={props.urls[0]} />
-    {props.children}
+    {props.children ? <div className="imageText">{props.children}</div> : null}
   </div>
 );
